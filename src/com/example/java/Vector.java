@@ -12,7 +12,7 @@ public class Vector {
     //Method to calculate length of the vector
 
     public double length() {
-        return (float) Math.sqrt(x * x + y * y + z * z);
+        return Math.sqrt(x * x + y * y + z * z);
     }
 
     //Method that calculates the dot product
