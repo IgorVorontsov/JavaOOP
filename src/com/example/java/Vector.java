@@ -9,9 +9,13 @@ public class Vector {
         this.z = z;
     }
 
-    public double lenth() {
+    //Method to calculate length of the vector
+
+    public double length() {
         return (float) Math.sqrt(x * x + y * y + z * z);
     }
+
+    //Method that calculates the dot product
 
     public double multBy(Vector B) {
         return this.x * B.x + this.y * B.y + this.z * B.z;
@@ -26,36 +30,31 @@ public class Vector {
                 '}';
     }
 
-    //creates single random vector
+    //Method that creates single random vector
 
     public static Vector randomVector() {
 
-        Vector vector = new Vector(Math.random(), Math.random(), Math.random());
-
-        return vector;
+        return new Vector(Math.random(), Math.random(), Math.random());
 
     }
 
 
-    //creates an array of random vectors
+    //Static method that creates an array of random vectors
     public static Vector[] randomVectorArray(int j) {
 
-        Vector vector[] = new Vector[j];
+        Vector[] vector = new Vector[j];
         for (int i = 0; i < j; i++) {
             vector[i] = Vector.randomVector();
-            System.out.println(vector[i]);
         }
         return vector;
 
     }
 
-
+    //Overloaded multiplication method to use random vector
     public double multBy() {
         Vector B = Vector.randomVector();
         return this.x * B.x + this.y * B.y + this.z * B.z;
     }
-
-
 
 
 }
