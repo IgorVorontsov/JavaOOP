@@ -33,7 +33,10 @@ public class Main {
         //Generating array of random vectors
         System.out.println("Enter size (number of elements) of the array of random vectors");
         int j = scanner.nextInt();
-        Vector[] randVectArray = Vector.randomVectorArray(j); //class Vector is deprecated & not recommended to use.
+        Vector[] randVectArray = Vector.randomVectorArray(j); 
+            //if it's a standard class Vector (from the java.core package) - is deprecated & not recommended to use.
+            // another issues with this code - you are using the Array data type  ( this with two brackets) []. It has some pretty famous disatvantages,
+            //believe this is covered in the book Jochua Bloch `Effective Java` - https://ahdak.github.io/blog/effective-java-part-4/ Item 28 : Prefer List to Array
         for (int i = 0; i < j; i++) {
             //you should never call something like logging in the cycle. Because in the multithreading system - you logging operation
             //could be posponed, and another thread start logging action in the same output stream..
@@ -43,6 +46,8 @@ public class Main {
 
         //Calculating dor product with random vector using overridden method
         System.out.println("Result of multiplication of the 1st vector " + vector1 + " with random vector is = " + vector1.multBy());
+        
+        //HERE: you could use something like String.format("Result of multiplication of the 1st vector %s .... is = %s", vector1, vector1.multBy()) ;
 
     }
 }
