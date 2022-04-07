@@ -9,6 +9,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         //Getting first vector from the user and calculating its length
+        //Would recommend to replace System call by something like log4j/ sl4j logging adapter. 
+        // But in general for the learning purpose approach with sout is okay.
         System.out.println("Enter x, y and z (coordinates) of the first vector each one in new line: ");
         double x = scanner.nextFloat();
         double y = scanner.nextFloat();
@@ -31,8 +33,10 @@ public class Main {
         //Generating array of random vectors
         System.out.println("Enter size (number of elements) of the array of random vectors");
         int j = scanner.nextInt();
-        Vector[] randVectArray = Vector.randomVectorArray(j);
+        Vector[] randVectArray = Vector.randomVectorArray(j); //class Vector is deprecated & not recommended to use.
         for (int i = 0; i < j; i++) {
+            //you should never call something like logging in the cycle. Because in the multithreading system - you logging operation
+            //could be posponed, and another thread start logging action in the same output stream..
             System.out.println(randVectArray[i]);
         }
 
